@@ -2,7 +2,7 @@
 export const getAllTables = (state) => state.tables;
 
 // ACTION TYPES
-const createActionName = (actionName) => `app/tables/${actionName}`;
+const createActionName = (name) => `app/tables/${name}`;
 const EDIT_TABLE = createActionName('EDIT_TABLE');
 const FETCH_TABLES = createActionName('FETCH_TABLES');
 
@@ -27,9 +27,7 @@ export const updateTableRequest = (tableData) => {
   return (dispatch) => {
     const options = {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(tableData),
     };
 
@@ -58,3 +56,6 @@ const tablesReducer = (statePart = [], action) => {
 };
 
 export default tablesReducer;
+
+
+

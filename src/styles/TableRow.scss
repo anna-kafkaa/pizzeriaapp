@@ -1,0 +1,18 @@
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .table-info {
+    font-size: 1rem;
+
+    span {
+      margin-right: 1rem;
+    }
+  }
+
+  .btn {
+    margin-left: 1rem;
+  }
+}
+
