@@ -15,7 +15,7 @@ const TableForm = ({ tableData }) => {
   const [bill, setBill] = useState(tableData.bill);
 
   useEffect(() => {
-    if (status === 'free' || status === 'cleaning') {
+    if (status.toLowerCase() === 'free' || status.toLowerCase() === 'cleaning') {
       setPeopleAmount(0);
       setBill(0);
     }
@@ -46,48 +46,51 @@ const TableForm = ({ tableData }) => {
       <Form.Group className="mb-3">
         <Form.Label>Status</Form.Label>
         <Form.Select value={status} onChange={(e) => setStatus(e.target.value)}>
-          <option value="free">Free</option>
-          <option value="reserved">Reserved</option>
-          <option value="busy">Busy</option>
-          <option value="cleaning">Cleaning</option>
+          <option value="Free">Free</option>
+          <option value="Reserved">Reserved</option>
+          <option value="Busy">Busy</option>
+          <option value="Cleaning">Cleaning</option>
         </Form.Select>
       </Form.Group>
 
-      <Form.Group className="mb-3">
-        <Form.Label>People Amount</Form.Label>
+      <Form.Group className="mb-3 d-flex align-items-center">
+        <Form.Label className="me-2 mb-0">People:</Form.Label>
         <Form.Control
           type="number"
           min="0"
           max="10"
           value={peopleAmount}
-          onChange={(e) => setPeopleAmount(Math.max(0, Math.min(10, Number(e.target.value))))}
+          onChange={(e) =>
+            setPeopleAmount(Math.max(0, Math.min(10, Number(e.target.value))))
+          }
+          style={{ width: '60px', marginRight: '5px' }}
         />
-      </Form.Group>
-
-      <Form.Group className="mb-3">
-        <Form.Label>Max People Amount</Form.Label>
+        <span className="mx-1">/</span>
         <Form.Control
           type="number"
           min="0"
           max="10"
           value={maxPeopleAmount}
-          onChange={(e) => setMaxPeopleAmount(Math.max(0, Math.min(10, Number(e.target.value))))}
+          onChange={(e) =>
+            setMaxPeopleAmount(Math.max(0, Math.min(10, Number(e.target.value))))
+          }
+          style={{ width: '60px' }}
         />
       </Form.Group>
 
-      {status === 'busy' && (
-        <Form.Group className="mb-3">
-          <Form.Label>Bill ($)</Form.Label>
-          <Form.Control
-            type="number"
-            min="0"
-            value={bill}
-            onChange={(e) => setBill(Number(e.target.value))}
-          />
-        </Form.Group>
-      )}
+      <Form.Group className="mb-3 d-flex align-items-center">
+        <Form.Label className="me-2 mb-0">Bill:</Form.Label>
+        <span className="me-1">$</span>
+        <Form.Control
+          type="number"
+          min="0"
+          value={bill}
+          onChange={(e) => setBill(Number(e.target.value))}
+          style={{ width: '100px' }}
+        />
+      </Form.Group>
 
-      <Button variant="success" type="submit">
+      <Button variant="primary" type="submit">
         Update
       </Button>
     </Form>
@@ -95,6 +98,8 @@ const TableForm = ({ tableData }) => {
 };
 
 export default TableForm;
+
+
 
 
 

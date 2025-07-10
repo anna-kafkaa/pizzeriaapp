@@ -1,35 +1,31 @@
 // src/components/TableList/TableRow.js
-import React from 'react';
 import { Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import '../../styles/TableRow.scss';
 
-const TableRow = ({ id, status, peopleAmount, maxPeopleAmount }) => {
+const TableRow = ({ id, status }) => {
   return (
-    // Zmieniamy ten div, dodając klasy Bootstrapa dla wyglądu karty
-    // mb-3: margin-bottom (odstęp między kartami)
-    // p-3: padding (wewnętrzny odstęp)
-    // bg-white: białe tło
-    // shadow-sm: delikatny cień
-    // rounded: zaokrąglone rogi (opcjonalnie, jeśli chcesz)
-    <div className="d-flex justify-content-between align-items-center mb-3 p-3 bg-white shadow-sm rounded">
-      <div>
-        <h3 className="mb-0">Table {id}</h3> {/* mb-0 usuwa dolny margines dla h3 */}
-        <p className="mb-0">Status: {status}</p> {/* mb-0 usuwa dolny margines dla p */}
+    <div className="table-row d-flex justify-content-between align-items-center py-3 border-bottom">
+      <div className="table-info d-flex align-items-center">
+        <div className="table-name"><strong>Table {id}</strong></div>
+        <div className="table-status ms-5">
+          <strong>Status:</strong> <span>{status}</span>
+        </div>
       </div>
-      <Button as={NavLink} to={`/table/${id}`} variant="primary">Show more</Button>
+      <Link to={`/table/${id}`}>
+        <Button variant="primary">Show more</Button>
+      </Link>
     </div>
   );
 };
 
-TableRow.propTypes = {
-  id: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-  peopleAmount: PropTypes.number.isRequired,
-  maxPeopleAmount: PropTypes.number.isRequired,
-};
-
 export default TableRow;
+
+
+
+
+
+
 
 
 

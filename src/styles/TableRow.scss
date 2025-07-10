@@ -1,18 +1,39 @@
+// src/styles/TableRow.scss
+
 .table-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
 
   .table-info {
+    display: flex;
+    align-items: center;
+  }
+
+  .table-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    min-width: 120px;
+  }
+
+  .table-status {
     font-size: 1rem;
+    font-weight: 400;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+
+    strong {
+      margin-right: 0.25rem;
+      font-weight: 700;
+    }
 
     span {
-      margin-right: 1rem;
+      font-weight: 400;
     }
   }
 
   .btn {
-    margin-left: 1rem;
+    min-width: 120px;
+    font-weight: 500;
   }
 }
-

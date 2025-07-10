@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 import { fetchTables } from './redux/tablesRedux';
 
 import Header from './views/Header';
-import Footer from './views/Footer';
 
 import Home from './components/pages/Home';
 import Table from './components/pages/Table';
 import NotFound from './components/pages/NotFound';
 import { Container } from 'react-bootstrap';
+
 
 
 const App = () => {
@@ -28,7 +28,6 @@ const App = () => {
         <Route path="/table/:id" element={<Table />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
     </Container>  
     </>
   );

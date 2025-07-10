@@ -10,10 +10,10 @@ const FETCH_TABLES = createActionName('FETCH_TABLES');
 export const editTable = (payload) => ({ type: EDIT_TABLE, payload });
 export const fetchTablesSuccess = (payload) => ({ type: FETCH_TABLES, payload });
 
-// THUNKS
+// THUNKS (działają, gdy działa serwer json-server)
 export const fetchTables = () => {
   return (dispatch) => {
-    fetch('http://localhost:3131/api/tables')
+    fetch('http://localhost:3131/tables')
       .then((res) => {
         if (!res.ok) throw new Error('Error fetching tables');
         return res.json();
@@ -31,7 +31,7 @@ export const updateTableRequest = (tableData) => {
       body: JSON.stringify(tableData),
     };
 
-    fetch(`http://localhost:3131/api/tables/${tableData.id}`, options)
+    fetch(`http://localhost:3131/tables/${tableData.id}`, options)
       .then((res) => {
         if (!res.ok) throw new Error('Server error while updating table');
         return res.json();

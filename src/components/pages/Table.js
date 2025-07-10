@@ -12,7 +12,7 @@ const Table = () => {
 
   return (
     <Container>
-      <h1 className="mb-4">Edit Table {id}</h1>
+      <h1 className="mb-4">Table {id}</h1>
       <TableForm tableData={table} />
     </Container>
   );

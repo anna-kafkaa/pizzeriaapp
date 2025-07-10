@@ -1,20 +1,19 @@
+// src/components/TableList/TableList.js
+import TableRow from '../TableList/TableRow';
 import { useSelector } from 'react-redux';
-import TableRow from './TableRow';
-import Container from '../common/Container';
-
+import { getAllTables } from '../../redux/tablesRedux';
+import '../../styles/TableList.scss';
 
 const TableList = () => {
-  const tables = useSelector(state => state.tables);
+  const tables = useSelector(getAllTables);
 
   return (
-    <Container>
-      <div className="table-list">
-        <h1 className="mb-4">All Tables</h1>
-        {tables.map(table => (
-          <TableRow key={table.id} {...table} />
-        ))}
-      </div>
-    </Container>
+    <div className="table-list">
+      <h2>All tables</h2>
+      {tables.map(table => (
+        <TableRow key={table.id} {...table} />
+      ))}
+    </div>
   );
 };
 
