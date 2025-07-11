@@ -1,8 +1,8 @@
-// SELECTORS
-export const getAllTables = (state) => state.tables;
-
 // ✅ IMPORT API_URL
 import { API_URL } from '../config';
+
+// SELECTORS
+export const getAllTables = (state) => state.tables;
 
 // ACTION TYPES
 const createActionName = (name) => `app/tables/${name}`;
