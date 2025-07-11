@@ -1,2 +1,3 @@
 // src/config.js
-export const API_URL = 'http://localhost:8000/api'; // Upewnij się, że to jest adres URL Twojego API backendu
+export const API_URL = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:3131/api';
+

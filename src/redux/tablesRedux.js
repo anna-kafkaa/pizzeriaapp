@@ -1,6 +1,9 @@
 // SELECTORS
 export const getAllTables = (state) => state.tables;
 
+// ✅ IMPORT API_URL
+import { API_URL } from '../config';
+
 // ACTION TYPES
 const createActionName = (name) => `app/tables/${name}`;
 const EDIT_TABLE = createActionName('EDIT_TABLE');
@@ -10,10 +13,10 @@ const FETCH_TABLES = createActionName('FETCH_TABLES');
 export const editTable = (payload) => ({ type: EDIT_TABLE, payload });
 export const fetchTablesSuccess = (payload) => ({ type: FETCH_TABLES, payload });
 
-// THUNKS (działają, gdy działa serwer json-server)
+// ✅ THUNKS – z użyciem API_URL
 export const fetchTables = () => {
   return (dispatch) => {
-    fetch('http://localhost:3131/tables')
+    fetch(`${API_URL}/tables`)
       .then((res) => {
         if (!res.ok) throw new Error('Error fetching tables');
         return res.json();
@@ -31,7 +34,7 @@ export const updateTableRequest = (tableData) => {
       body: JSON.stringify(tableData),
     };
 
-    fetch(`http://localhost:3131/tables/${tableData.id}`, options)
+    fetch(`${API_URL}/tables/${tableData.id}`, options)
       .then((res) => {
         if (!res.ok) throw new Error('Server error while updating table');
         return res.json();
@@ -56,6 +59,3 @@ const tablesReducer = (statePart = [], action) => {
 };
 
 export default tablesReducer;
-
-
-
