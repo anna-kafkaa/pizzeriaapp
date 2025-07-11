@@ -24,7 +24,7 @@
   "scripts": {
     "start": "npm-run-all -p start:*",
     "start:react": "react-scripts start",
-    "start:server": "json-server --port 3131 --no-cors --delay 250 --watch public/db/app.json --routes public/db/routes.json",
+    "start:server": "json-server --port 3131 --no-cors --delay 250 --watch db/app.json --routes db/routes.json",
     "build": "npm run copy-db && react-scripts build",
     "copy-db": "copyfiles -u 2 public/db/app.json build/db",
     "test": "react-scripts test",
