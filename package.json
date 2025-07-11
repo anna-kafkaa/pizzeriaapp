@@ -26,7 +26,7 @@
     "start:react": "react-scripts start",
     "start:server": "json-server --watch public/db/app.json --routes public/db/routes.json --port 3131",
     "build": "npm run copy-db && react-scripts build",
-    "copy-db": "mkdir build\\db && copy public\\db\\app.json build\\db\\app.json",
+    "copy-db": "mkdir build\\db && copy public\\db\\app.json build\\db\\app.json && copy public\\db\\routes.json build\\db\\routes.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
