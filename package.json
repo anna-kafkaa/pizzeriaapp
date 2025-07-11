@@ -2,6 +2,7 @@
   "name": "pizzeriaapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -21,13 +22,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm-run-all -p start:*",
-    "start:react": "react-scripts start",
-    "start:server": "json-server --port 3131 --no-cors --delay 250 --watch public/db/app.json --routes public/db/routes.json",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+  "start": "npm-run-all -p start:*",
+  "start:react": "react-scripts start",
+  "start:server": "json-server --port 3131 --no-cors --delay 250 --watch public/db/app.json --routes public/db/routes.json",
+  "build": "npm run copy-db && react-scripts build",
+  "copy-db": "mkdir -p build/db && cp public/db/app.json build/db/app.json",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+},
   "eslintConfig": {
     "extends": [
       "react-app",
