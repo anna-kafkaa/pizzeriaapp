@@ -1,0 +1,14 @@
+@charset "UTF-8";
+.table-form {
+  max-width: 600px;
+  margin-left: 0; /* wyrównanie do lewej */
+  margin-right: auto;
+}
+.table-form .form-group {
+  margin-bottom: 1.5rem;
+}
+.table-form button {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=TableForm.css.map */

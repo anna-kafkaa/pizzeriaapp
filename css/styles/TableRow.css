@@ -1,0 +1,33 @@
+.table-row {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+}
+.table-row .table-info {
+  display: flex;
+  align-items: center;
+}
+.table-row .table-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  min-width: 120px;
+}
+.table-row .table-status {
+  font-size: 1rem;
+  font-weight: 400;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+}
+.table-row .table-status strong {
+  margin-right: 0.25rem;
+  font-weight: 700;
+}
+.table-row .table-status span {
+  font-weight: 400;
+}
+.table-row .btn {
+  min-width: 120px;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=TableRow.css.map */

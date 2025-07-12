@@ -2,7 +2,7 @@
   "name": "pizzeriaapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "main": "index.html",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -22,11 +22,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm-run-all -p start:*",
-    "start:react": "react-scripts start",
-    "start:server": "json-server --watch public/db/app.json --routes public/db/routes.json --port 3131",
-    "build": "npm run copy-db && react-scripts build",
-    "copy-db": "mkdir build\\db && copy public\\db\\app.json build\\db\\app.json && copy public\\db\\routes.json build\\db\\routes.json",
+    "start": "node server.mjs",
+    "start:copy": "npm run copy-public && npm run copy-assets && npm run copy-db && npm run copy-root",
+    "build": "npm run start:copy && react-scripts build",
+    "sass": "sass --watch src/styles:css/styles --load-path=node_modules",
+    "copy-public": "copyfiles -u 1 public/**/* build",
+    "copy-assets": "copyfiles -u 1 css/styles/*.css src/**/*.js build",
+    "copy-db": "mkdirp build/db && copyfiles -u 2 public/db/*.json build/db",
+    "copy-root": "copyfiles README.md package.json .gitignore build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -51,6 +54,8 @@
   "devDependencies": {
     "copyfiles": "^2.4.1",
     "npm-run-all": "^4.1.5",
-    "sass": "^1.89.2"
+    "sass": "^1.89.2",
+    "mkdirp": "^3.0.1"
   }
 }
+

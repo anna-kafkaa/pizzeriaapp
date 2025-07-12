@@ -1,7 +1,7 @@
 // src/styles/global.scss
 
 // Importujemy domyślne style Bootstrapa
-@import '~bootstrap/scss/bootstrap';
+@use 'bootstrap/scss/bootstrap' as *;
 
 body {
   background-color: #f8f9fa; // Jasne tło dla całej strony
